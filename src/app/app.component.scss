@@ -1,0 +1,23 @@
+
+nav {
+  display: flex;
+  background-color: #000000;
+  padding: 200px;
+  color: #fff;
+  justify-content: center;
+
+}
+
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+
+nav a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}

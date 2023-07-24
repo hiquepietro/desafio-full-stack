@@ -1,0 +1,65 @@
+<form [formGroup]="fornecedorForm" (ngSubmit)="cadastrarFornecedor()">
+  <div>
+    <label>
+      Tipo de Pessoa:
+      <select formControlName="tipoPessoa">
+        <option value="F">Pessoa Física</option>
+        <option value="J">Pessoa Jurídica</option>
+      </select>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Nome:
+      <input type="text" formControlName="nome" />
+    </label>
+    <div *ngIf="fornecedorForm.get('nome').invalid && fornecedorForm.get('nome').touched">
+      O campo Nome é obrigatório.
+    </div>
+  </div>
+
+  <div>
+    <label>
+      CPF/CNPJ:
+      <input type="text" formControlName="cpfCnpj" />
+    </label>
+    <div *ngIf="fornecedorForm.get('cpfCnpj').invalid && fornecedorForm.get('cpfCnpj').touched">
+      O campo CPF/CNPJ é obrigatório.
+    </div>
+  </div>
+
+  <div *ngIf="fornecedorForm.get('tipoPessoa').value === 'F'">
+    <div>
+      <label>
+        RG:
+        <input type="text" formControlName="rg" />
+      </label>
+      <div *ngIf="fornecedorForm.get('rg').invalid && fornecedorForm.get('rg').touched">
+        O campo RG é obrigatório.
+      </div>
+    </div>
+
+    <div>
+      <label>
+        Data de Nascimento:
+        <input type="date" formControlName="dataNascimento" />
+      </label>
+      <div *ngIf="fornecedorForm.get('dataNascimento').invalid && fornecedorForm.get('dataNascimento').touched">
+        O campo Data de Nascimento é obrigatório.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label>
+      Empresa:
+      <input type="text" formControlName="empresa" />
+    </label>
+    <div *ngIf="fornecedorForm.get('empresa').invalid && fornecedorForm.get('empresa').touched">
+      O campo Empresa é obrigatório.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="fornecedorForm.invalid">Cadastrar</button>
+</form>
